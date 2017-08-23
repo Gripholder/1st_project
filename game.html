@@ -3,14 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Alfa Romeo Trivia Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="game.css">
   </head>
   <body>
     <header>Trivia Game</header>
-    <div id="name">
-      <h3>Please enter your name to get started</h3>
-      <input id="nameInput" placeholder="Enter your name here" type="text"><button id="goForward" href="#">Submit</button>
-    </div>
+    <div class="questions">
+    <h3 class="head3"></h3>
+    <div class="options1">
+    <button type="button" name="button" class="buttons"></button>
+    <button type="button" name="button" class="buttons"></button>
+  </div>
+  <div class="options2">
+    <button type="button" name="button" class="buttons"></button>
+    <button type="button" name="button" class="buttons"></button>
+  </div>
+  <div class="options3" id="options3">
+  </div>
+  <div class="options5">
+  </div>
+  </div>
     <!-- <div id="logo">
     <img src="alfaromeologo.jpg" alt="logo">
   </div> -->
@@ -21,6 +32,7 @@
         <li>Missed Answers:</li>
       </ul>
     </aside>
+    <button type="button" class="move" id="goBack">Go Back</button><button type="button" class="move" id="goNext">Next</button>
     <footer>
       <nav id="footer">
         <a href="suggestions.html" id="suggestions">Suggestions</a>
@@ -32,8 +44,8 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  </script>
-    <script src="script.js"></script>
-  <script src="game.js"></script>
+    <script type="text/javascript" src="script.js">
+    </script>
+    <script type="text/javascript" src="game.js"></script>
   </body>
 </html>
