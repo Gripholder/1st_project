@@ -51,230 +51,149 @@ let allQuestions = [
   }
 ]
 
-// function answersCheck() {
-//   let counter = 0
-//   if(firstButton.text() === allQuestions[counter].answer) {
-//     $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-//   } else {
-//     $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-//   }
-//   counter++
-// }
-
-
-// make a new nextQuestion function, increment the counter, use the counter to access the
-// allQuestions[counter].choices[3]
-
 let counter = 0
 let counter2 = 0
 let score = 0
 let missed = 0
 
 if(counter === 0){
-for(let i = 0; i < allQuestions.length; i++){
-  $(".head3").text(allQuestions[counter].question)
-  $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-}}
+  for(let i = 0; i < allQuestions.length; i++){
+    $(".head3").text(allQuestions[counter].question)
+    $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+  }}
 
-//
-let firstButton = $(".buttons").eq(0)
-let secondButton = $(".buttons").eq(1)
-let thirdButton = $(".buttons").eq(2)
-let fourthButton = $(".buttons").eq(3)
-let goNext = $("#goNext")
-let goBack = $("#goBack")
+  let firstButton = $(".buttons").eq(0)
+  let secondButton = $(".buttons").eq(1)
+  let thirdButton = $(".buttons").eq(2)
+  let fourthButton = $(".buttons").eq(3)
+  let goNext = $("#goNext")
+  let goBack = $("#goBack")
 
-firstButton.on("click", checkAnswer1)
-secondButton.on("click", checkAnswer2)
-thirdButton.on("click", checkAnswer3)
-fourthButton.on("click", checkAnswer4)
-goNext.on("click", switchQuestions2)
-goBack.on("click", goBackwards)
+  firstButton.on("click", checkAnswer1)
+  secondButton.on("click", checkAnswer2)
+  thirdButton.on("click", checkAnswer3)
+  fourthButton.on("click", checkAnswer4)
+  goNext.on("click", switchQuestions2)
+  goBack.on("click", goBackwards)
 
 
-function checkAnswer1() {
-  if(firstButton.text() === allQuestions[counter].answer){
-    $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+  function checkAnswer1() {
+    if(firstButton.text() === allQuestions[counter].answer){
+      $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+      if(counter === 0){
+        return counter = 1, score = 1
+      } else if(counter > 0){
+        return score++
+      }
+    } else {
+      $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
+      if(counter === 0){
+        return counter = 1, missed = 1
+      } else if(counter > 0){
+        return missed++
+      }
+    }
+  }
+
+  function checkAnswer2() {
+    if(secondButton.text() === allQuestions[counter].answer){
+      $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+      if(counter === 0){
+        return counter = 1, score = 1
+      } else if(counter > 0){
+        return score++
+      }
+    } else {
+      $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
+      if(counter === 0){
+        return counter = 1, missed = 1
+      } else if(counter > 0){
+        return missed++
+      }
+    }
+  }
+
+  function checkAnswer3() {
+    if(thirdButton.text() === allQuestions[counter].answer){
+      $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+      if(counter === 0){
+        return counter = 1, missed = 1
+      } else if(counter > 0){
+        return score++
+      }
+    } else {
+      $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
+    }
     if(counter === 0){
       return counter = 1, score = 1
-    } else if(counter > 0){
-      return score++
-    }
-  } else {
-    $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-    if(counter === 0){
-      return counter = 1, missed = 1
     } else if(counter > 0){
       return missed++
     }
   }
-}
-function checkAnswer2() {
-  if(secondButton.text() === allQuestions[counter].answer){
-    $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+
+  function checkAnswer4() {
+    if(fourthButton.text() === allQuestions[counter].answer){
+      $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
+      if(counter === 0){
+        return counter = 1, score = 1
+      } else if(counter > 0){
+        return score++
+      }
+    } else {
+      $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
+    }
     if(counter === 0){
       return counter = 1, score = 1
-    } else if(counter > 0){
-      return score++
-    }
-  } else {
-    $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-    if(counter === 0){
-      return counter = 1, missed = 1
     } else if(counter > 0){
       return missed++
     }
   }
-}
-function checkAnswer3() {
-  if(thirdButton.text() === allQuestions[counter].answer){
-    $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-    if(counter === 0){
-      return counter = 1, missed = 1
-    } else if(counter > 0){
-      return score++
+
+  function switchQuestions2() {
+    for(let i = 0; i < allQuestions[counter].choices.length; i++){
+      $(".buttons").eq(i).text(allQuestions[counter].choices[i])
     }
-  } else {
-    $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-  }
-  if(counter === 0){
-    return counter = 1, score = 1
-  } else if(counter > 0){
-    return missed++
-  }
-}
-function checkAnswer4() {
-  if(fourthButton.text() === allQuestions[counter].answer){
-    $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-    if(counter === 0){
-      return counter = 1, score = 1
-    } else if(counter > 0){
-      return score++
+    $("h3").text(allQuestions[counter].question)
+    if(counter2 >= 1 && counter >= 1){
+      counter = counter + 1, counter2 = counter2 + 1
+      for(let i = 0; i < allQuestions.length; i++){
+        $(".head3").text(allQuestions[counter].question)
+        $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+      }
+    } else {
+      counter2 = 1
+      for(let i = 0; i < allQuestions.length; i++){
+        $(".head3").text(allQuestions[counter].question)
+        $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+      }
     }
-  } else {
-    $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
+    console.log(counter2);
+    $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
+    $("li").eq(1).html("Correct Answers: " + "" + score)
+    $("li").eq(2).html("Missed Answers: " + "" + missed)
+    $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
   }
-  if(counter === 0){
-    return counter = 1, score = 1
-  } else if(counter > 0){
-    return missed++
-  }
-}
 
-// counter++
-
-function switchQuestions2() {
-  for(let i = 0; i < allQuestions[counter].choices.length; i++){
-    $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+  function goBackwards() {
+    for(let i = 0; i < allQuestions[counter].choices.length; i++){
+      $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+    }
+    $("h3").text(allQuestions[counter].question)
+    if(counter2 >= 1 && counter >= 1){
+      counter = counter - 1, counter2 = counter2 - 1
+      for(let i = 0; i < allQuestions.length; i++){
+        $(".head3").text(allQuestions[counter].question)
+        $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+      }
+    } else if(counter === 0){
+      window.location.href='index.html'
+    } else {
+      counter2 = 1
+      for(let i = 0; i < allQuestions.length; i++){
+        $(".head3").text(allQuestions[counter].question)
+        $(".buttons").eq(i).text(allQuestions[counter].choices[i])
+      }
+    }
+    $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
+    $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
   }
-  $("h3").text(allQuestions[counter].question)
-  if(counter2 >= 1 && counter >= 1){
-     counter = counter + 1, counter2 = counter2 + 1
-     for(let i = 0; i < allQuestions.length; i++){
-       $(".head3").text(allQuestions[counter].question)
-       $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-     }
-   } else {
-     counter2 = 1
-     for(let i = 0; i < allQuestions.length; i++){
-       $(".head3").text(allQuestions[counter].question)
-       $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-     }
-   }
-  //  $("li").eq(1).html("Current Score:" + " " + counter2)
-   console.log(counter2);
-   $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
-   $("li").eq(1).html("Correct Answers: " + "" + score)
-   $("li").eq(2).html("Missed Answers: " + "" + missed)
-   $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
-    // goNext.on("click", switchQuestions3)
-  // goBack.on("click", href="game.js")
-}
-
-function goBackwards() {
-  for(let i = 0; i < allQuestions[counter].choices.length; i++){
-    $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-  }
-  $("h3").text(allQuestions[counter].question)
-  if(counter2 >= 1 && counter >= 1){
-     counter = counter - 1, counter2 = counter2 - 1
-     for(let i = 0; i < allQuestions.length; i++){
-       $(".head3").text(allQuestions[counter].question)
-       $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-     }
-   } else if(counter === 0){
-     window.location.href='index.html'
-   } else {
-     counter2 = 1
-     for(let i = 0; i < allQuestions.length; i++){
-       $(".head3").text(allQuestions[counter].question)
-       $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-     }
-   }
-   $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
-   $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
-}
-// function switchQuestions3() {
-//   for(let i = 0; i < allQuestions.question3.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question3.choices[i])
-//   }
-//   $("h3").text(allQuestions.question3.question)
-//   goNext.on("click", switchQuestions4)
-//   goBack.on
-// }
-// function switchQuestions4() {
-//   for(let i = 0; i < allQuestions.question4.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question4.choices[i])
-//   }
-//   $("h3").text(allQuestions.question4.question)
-//   goNext.on("click", switchQuestions5)
-// }
-// function switchQuestions5() {
-//   for(let i = 0; i < allQuestions.question5.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question5.choices[i])
-//   }
-//   $("h3").text(allQuestions.question5.question)
-//   goNext.on("click", switchQuestions6)
-// }
-// function switchQuestions6() {
-//   for(let i = 0; i < allQuestions.question6.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question6.choices[i])
-//   }
-//   $("h3").text(allQuestions.question6.question)
-//   goNext.on("click", switchQuestions7)
-// }
-// function switchQuestions7() {
-//   for(let i = 0; i < allQuestions.question7.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question7.choices[i])
-//   }
-//   $("h3").text(allQuestions.question7.question)
-//   goNext.on("click", switchQuestions8)
-// }
-// function switchQuestions8() {
-//   for(let i = 0; i < allQuestions.question8.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question8.choices[i])
-//   }
-//   $("h3").text(allQuestions.question8.question)
-//   goNext.on("click", switchQuestions9)
-// }
-// function switchQuestions9() {
-//   for(let i = 0; i < allQuestions.question9.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question9.choices[i])
-//   }
-//   $("h3").text(allQuestions.question9.question)
-//   goNext.on("click", switchQuestions10)
-// }
-// function switchQuestions10() {
-//   for(let i = 0; i < allQuestions.question10.choices.length; i++){
-//     $(".buttons").eq(i).text(allQuestions.question10.choices[i])
-//   }
-//   $("h3").text(allQuestions.question10.question)
-// }
-//
-// function checkAnswer5() {
-//   if(firstButton.text() === allQuestions.question2.answer){
-//     $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-//   } else {
-//     $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-//   }
-// }
