@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background-color: white;
+  background-image: url("alfaromeologo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+header {
+  background-color: rgba(152,44,39,1);
+  color: white;
+  padding: 15px;
+  font-size: 32px;
+}
+
+#contactus {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+#contactInfo {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+h1 {
+  color: black;
+  margin-left: 1%;
+}
+
+input {
+  width: 200px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+button {
+  width: 100px;
+  height: 26px;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: black;
+  align-content: center;
+}
+
+#footer {
+  text-align: center;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+}
