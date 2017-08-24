@@ -1,8 +1,7 @@
 console.log("Good morning Mohamed")
 
 let button = $("#goForward")
-let input = $("#nameInput")
-let inputName = input.val()
+let input = $("#nameInput").val()
 
 button.on("click", movetoNextPage)
 

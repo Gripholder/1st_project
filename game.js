@@ -1,4 +1,3 @@
-
 let allQuestions = [
   {
     question: "When was Alfa Romeo first founded?",
@@ -28,7 +27,7 @@ let allQuestions = [
   {
     question: "What engine does the non-Quadrifoglio Stelvio comes in?",
     choices: ["2.9T", "2.0T", "3.0T", "1.7T"],
-    answer: "2.0"
+    answer: "2.0T"
   },
   {
     question: "What kind of drivetrain does Giulia Quadrifoglio have?",
@@ -69,6 +68,7 @@ let allQuestions = [
 let counter = 0
 let counter2 = 0
 let score = 0
+let missed = 0
 
 if(counter === 0){
 for(let i = 0; i < allQuestions.length; i++){
@@ -103,7 +103,9 @@ function checkAnswer1() {
   } else {
     $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
     if(counter === 0){
-      return counter = 1
+      return counter = 1, missed = 1
+    } else if(counter > 0){
+      return missed++
     }
   }
 }
@@ -118,7 +120,9 @@ function checkAnswer2() {
   } else {
     $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
     if(counter === 0){
-      return counter = 1
+      return counter = 1, missed = 1
+    } else if(counter > 0){
+      return missed++
     }
   }
 }
@@ -126,7 +130,7 @@ function checkAnswer3() {
   if(thirdButton.text() === allQuestions[counter].answer){
     $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
     if(counter === 0){
-      return counter = 1, score = 1
+      return counter = 1, missed = 1
     } else if(counter > 0){
       return score++
     }
@@ -134,7 +138,9 @@ function checkAnswer3() {
     $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
   }
   if(counter === 0){
-    return counter = 1
+    return counter = 1, score = 1
+  } else if(counter > 0){
+    return missed++
   }
 }
 function checkAnswer4() {
@@ -149,7 +155,9 @@ function checkAnswer4() {
     $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
   }
   if(counter === 0){
-    return counter = 1
+    return counter = 1, score = 1
+  } else if(counter > 0){
+    return missed++
   }
 }
 
@@ -175,7 +183,10 @@ function switchQuestions2() {
    }
   //  $("li").eq(1).html("Current Score:" + " " + counter2)
    console.log(counter2);
-   $("li").eq(0).html("Current Score: " + "" + score)
+   $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
+   $("li").eq(1).html("Correct Answers: " + "" + score)
+   $("li").eq(2).html("Missed Answers: " + "" + missed)
+   $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
     // goNext.on("click", switchQuestions3)
   // goBack.on("click", href="game.js")
 }
@@ -200,6 +211,8 @@ function goBackwards() {
        $(".buttons").eq(i).text(allQuestions[counter].choices[i])
      }
    }
+   $(".options3").html("").css("background-color", "rgba(255,255,255,1)")
+   $("li").eq(0).html("Question number: " + "" + (counter2 + 1))
 }
 // function switchQuestions3() {
 //   for(let i = 0; i < allQuestions.question3.choices.length; i++){
