@@ -51,16 +51,10 @@ let allQuestions = [
   }
 ]
 
-let counter = 0
+let counter = 1
 let counter2 = 0
 let score = 0
 let missed = 0
-
-if(counter === 0){
-  for(let i = 0; i < allQuestions.length; i++){
-    $(".head3").text(allQuestions[counter].question)
-    $(".buttons").eq(i).text(allQuestions[counter].choices[i])
-  }}
 
   let firstButton = $(".buttons").eq(0)
   let secondButton = $(".buttons").eq(1)
@@ -78,75 +72,43 @@ if(counter === 0){
 
 
   function checkAnswer1() {
-    if(firstButton.text() === allQuestions[counter].answer){
+    if(firstButton.text() === allQuestions[counter - 1].answer){
       $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-      if(counter === 0){
-        return counter = 1, score = 1
-      } else if(counter > 0){
         return score++
-      }
     } else {
       $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-      if(counter === 0){
-        return counter = 1, missed = 1
-      } else if(counter > 0){
         return missed++
-      }
     }
   }
 
   function checkAnswer2() {
     if(secondButton.text() === allQuestions[counter].answer){
       $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-      if(counter === 0){
-        return counter = 1, score = 1
-      } else if(counter > 0){
         return score++
-      }
     } else {
       $(".options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
-      if(counter === 0){
-        return counter = 1, missed = 1
-      } else if(counter > 0){
         return missed++
-      }
     }
   }
 
   function checkAnswer3() {
     if(thirdButton.text() === allQuestions[counter].answer){
       $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-      if(counter === 0){
-        return counter = 1, missed = 1
-      } else if(counter > 0){
         return score++
-      }
     } else {
       $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
     }
-    if(counter === 0){
-      return counter = 1, score = 1
-    } else if(counter > 0){
       return missed++
-    }
   }
 
   function checkAnswer4() {
     if(fourthButton.text() === allQuestions[counter].answer){
       $(".options3").html("You are correct!").css({"background-color": "rgba(0,100,0,0.5)",  "margin-left": "140px"})
-      if(counter === 0){
-        return counter = 1, score = 1
-      } else if(counter > 0){
         return score++
-      }
     } else {
       $("#options3").html("You're answer is wrong!").css({"background-color": "rgba(100,0,0,0.5)", "margin-left": "116px"})
     }
-    if(counter === 0){
-      return counter = 1, score = 1
-    } else if(counter > 0){
       return missed++
-    }
   }
 
   function switchQuestions2() {
